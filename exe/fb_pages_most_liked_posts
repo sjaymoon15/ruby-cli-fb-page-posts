@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+require "fb_pages_most_liked_posts"
