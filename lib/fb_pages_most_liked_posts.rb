@@ -35,13 +35,34 @@ module FbPagesMostLikedPosts
         a['likes']['summary']['total_count'] <=> b['likes']['summary']['total_count']
       }.reverse
 
-      puts "#########################################################################"
+      puts "#----CocaColaUnitedStates----#"
+      coca_cola_posts_sorted.each do |post|
+        puts "id: #{post['id']}"
+        puts "num_of_likes: #{post['likes']['summary']['total_count']}"
+        puts "message: #{post['message']}"
+        puts "created_time: #{post['created_time']}"
+        puts "----------------------------------------------------------------"
+        puts
+      end
+
+      puts "#----fcbarcelona----#"
+      fc_barcelona_posts_sorted.each do |post|
+        puts "id: #{post['id']}"
+        puts "num_of_likes: #{post['likes']['summary']['total_count']}"
+        puts "message: #{post['message']}"
+        puts "created_time: #{post['created_time']}"
+        puts "----------------------------------------------------------------"
+        puts
+      end
+
+      puts "#----WholeFoods----#"
       whole_foods_posts_sorted.each do |post|
         puts "id: #{post['id']}"
         puts "num_of_likes: #{post['likes']['summary']['total_count']}"
         puts "message: #{post['message']}"
         puts "created_time: #{post['created_time']}"
-        puts "######################################"
+        puts "----------------------------------------------------------------"
+        puts
       end
     end
   end
