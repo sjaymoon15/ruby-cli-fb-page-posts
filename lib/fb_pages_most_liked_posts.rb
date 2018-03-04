@@ -18,7 +18,12 @@ module FbPagesMostLikedPosts
       access_token = oauth.get_app_access_token
 
       client = Koala::Facebook::API.new(access_token)
-      params = "posts?fields=likes.summary(true),message,created_time&limit=#{options[:MAX_POSTS_PER_PAGE]}"
+      max_posts_per_page = options[:MAX_POSTS_PER_PAGE]
+      top_posts_count = options[:TOP_POSTS_COUNT].to_i <= max_posts_per_page.to_i ?
+                          options[:TOP_POSTS_COUNT].to_i :
+                          max_posts_per_page.to_i
+      params = "posts?fields=likes.summary(true),message,created_time&limit=#{max_posts_per_page}"
+
       coca_cola_posts = client.get_connection('CocaColaUnitedStates', params)
       fc_barcelona_posts = client.get_connection('fcbarcelona', params)
       whole_foods_posts = client.get_connection('WholeFoods', params)
@@ -36,34 +41,39 @@ module FbPagesMostLikedPosts
       }.reverse
 
       puts "#----CocaColaUnitedStates----#"
-      coca_cola_posts_sorted.each do |post|
-        puts "id: #{post['id']}"
-        puts "num_of_likes: #{post['likes']['summary']['total_count']}"
-        puts "message: #{post['message']}"
-        puts "created_time: #{post['created_time']}"
-        puts "----------------------------------------------------------------"
-        puts
-      end
+      coca_cola_posts_sorted.each_with_index {| post, index |
+        if index < top_posts_count
+          puts index
 
-      puts "#----fcbarcelona----#"
-      fc_barcelona_posts_sorted.each do |post|
-        puts "id: #{post['id']}"
-        puts "num_of_likes: #{post['likes']['summary']['total_count']}"
-        puts "message: #{post['message']}"
-        puts "created_time: #{post['created_time']}"
-        puts "----------------------------------------------------------------"
-        puts
-      end
+          puts "id: #{post['id']}"
+          puts "num_of_likes: #{post['likes']['summary']['total_count']}"
+          puts "message: #{post['message']}"
+          puts "created_time: #{post['created_time']}"
+          puts "----------------------------------------------------------------"
+          puts
+        end
+      }
+      # end
 
-      puts "#----WholeFoods----#"
-      whole_foods_posts_sorted.each do |post|
-        puts "id: #{post['id']}"
-        puts "num_of_likes: #{post['likes']['summary']['total_count']}"
-        puts "message: #{post['message']}"
-        puts "created_time: #{post['created_time']}"
-        puts "----------------------------------------------------------------"
-        puts
-      end
+      # puts "#----fcbarcelona----#"
+      # fc_barcelona_posts_sorted.each do |post|
+      #   puts "id: #{post['id']}"
+      #   puts "num_of_likes: #{post['likes']['summary']['total_count']}"
+      #   puts "message: #{post['message']}"
+      #   puts "created_time: #{post['created_time']}"
+      #   puts "----------------------------------------------------------------"
+      #   puts
+      # end
+      #
+      # puts "#----WholeFoods----#"
+      # whole_foods_posts_sorted.each do |post|
+      #   puts "id: #{post['id']}"
+      #   puts "num_of_likes: #{post['likes']['summary']['total_count']}"
+      #   puts "message: #{post['message']}"
+      #   puts "created_time: #{post['created_time']}"
+      #   puts "----------------------------------------------------------------"
+      #   puts
+      # end
     end
   end
 end
