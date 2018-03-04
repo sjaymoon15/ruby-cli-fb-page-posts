@@ -2,4 +2,6 @@
 
 require "fb_pages_most_liked_posts"
 
+ARGV.unshift('fb_pages_most_liked_posts') if ARGV[0] != 'fb_pages_most_liked_posts'
+
 FbPagesMostLikedPosts::CLI.start(ARGV)
