@@ -10,8 +10,10 @@ https://www.facebook.com/WholeFoods/
 ```
 
 ## Requirements
+```
 Ruby version >= 2.1
-bundler 
+bundler
+``` 
 
 ## Getting Started
 
@@ -26,6 +28,12 @@ Set a facebook app secret environment variable
 ```
 $ export FACEBOOK_APP_SECRET=thisisfakeappsecretplzreplacewithrightsecret
 ```
+
+Install the gem to your system
+```
+$ rake install
+```
+
 And then execute:
 
     $ bundle exec exe/fb_pages_most_liked_posts -m 100 -t 10    
