@@ -27,8 +27,9 @@ And then execute:
 
 Options:
 ```
-    -m -the number of posts to consider for evaluation per page (MAX_POSTS_PER_PAGE, optional, default to 100)
-    -t -the number of top posts to display (TOP_POSTS_COUNT, optional, default to 10)
+    -m -MAX_POSTS_PER_PAGE: the number of posts to consider for evaluation per page 
+        (optional, default to 100, Maximum number: 100)
+    -t -TOP_POSTS_COUNT: the number of top posts to display (optional, default to 10)
 ```
 
 Alternatively, you can define the environment variables before the name of the command.
