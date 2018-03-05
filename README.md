@@ -9,12 +9,17 @@ https://www.facebook.com/fcbarcelona/
 https://www.facebook.com/WholeFoods/
 ```
 
+## Requirements
+Ruby version >= 2.1
+bundler 
+
 ## Getting Started
 
-Clone this repo
+Clone this repo and install dependencies
 ```
 $ git clone https://github.com/sjaymoon15/ruby-cli-fb-page-posts.git
 $ cd ruby-cli-fb-page-posts
+$ bundle install
 ```
 
 Set a facebook app secret environment variable
@@ -22,6 +27,10 @@ Set a facebook app secret environment variable
 $ export FACEBOOK_APP_SECRET=thisisfakeappsecretplzreplacewithrightsecret
 ```
 And then execute:
+
+    $ bundle exec exe/fb_pages_most_liked_posts -m 100 -t 10    
+    
+Or execute:
 
     $ fb_pages_most_liked_posts -m 100 -t 10
 
