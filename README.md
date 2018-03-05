@@ -2,18 +2,19 @@
 
 A command-line program that lists the top liked posts (ranked by likes) for 3 Facebook Pages given their public API data.
 
-Pages to use:
+Pages used:
+```
 https://www.facebook.com/CocaColaUnitedStates/
 https://www.facebook.com/fcbarcelona/
 https://www.facebook.com/WholeFoods/
+```
 
 ## Getting Started
 
-Clone this repo, install dependencies
+Clone this repo
 ```
 > git clone https://github.com/sjaymoon15/ruby-cli-fb-page-posts.git
 > cd ruby-cli-fb-page-posts
-> bundle install
 ```
 
 Set a facebook app secret environment variable
