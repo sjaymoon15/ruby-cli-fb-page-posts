@@ -10,8 +10,10 @@ https://www.facebook.com/WholeFoods/
 ```
 
 ## Requirements
+```
 Ruby version >= 2.1
-bundler 
+bundler
+``` 
 
 ## Getting Started
 
