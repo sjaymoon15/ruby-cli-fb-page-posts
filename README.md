@@ -1,39 +1,88 @@
 # FbPagesMostLikedPosts
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fb_pages_most_liked_posts`. To experiment with that code, run `bin/console` for an interactive prompt.
+A command-line program that lists the top liked posts (ranked by likes) for 3 Facebook Pages given their public API data.
 
-TODO: Delete this and the text above, and describe your gem
+Pages to use:
+https://www.facebook.com/CocaColaUnitedStates/
+https://www.facebook.com/fcbarcelona/
+https://www.facebook.com/WholeFoods/
 
-## Installation
+## Getting Started
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'fb_pages_most_liked_posts'
+Clone this repo, install dependencies
+```
+> git clone https://github.com/sjaymoon15/ruby-cli-fb-page-posts.git
+> cd ruby-cli-fb-page-posts
+> bundle install
 ```
 
+Set a facebook app secret environment variable
+```
+$ export FACEBOOK_APP_SECRET=thisisfakeappsecretplzreplacewithrightsecret
+```
 And then execute:
 
-    $ bundle
+    $ fb_pages_most_liked_posts -m 100 -t 10
 
-Or install it yourself as:
+Options:
+```
+    -m -the number of posts to consider for evaluation per page (MAX_POSTS_PER_PAGE, optional, default to 100)
+    -t -the number of top posts to display (TOP_POSTS_COUNT, optional, default to 10)
+```
 
-    $ gem install fb_pages_most_liked_posts
+Alternatively, you can define the environment variables before the name of the command.
+```
+$ FACEBOOK_APP_SECRET=thisisfakeappsecretplzreplacewithrightsecret fb_pages_most_liked_posts -m 100 -t 10
+```
 
-## Usage
+## Output example
+```
+  Searching 100 posts for each page...
 
-TODO: Write usage instructions here
+  Showing 5 posts for each page...
 
-## Development
+  Coca Cola United States
+  +--------------+----------------------------------+--------------------------+
+  | num_of_likes | id                               | created_time             |
+  +--------------+----------------------------------+--------------------------+
+  | 19139        | 820882001277849_1435396799826363 | 2016-12-24T14:00:29+0000 |
+  +--------------+----------------------------------+--------------------------+
+  | 16764        | 820882001277849_1439894569376586 | 2016-12-26T14:00:02+0000 |
+  +--------------+----------------------------------+--------------------------+
+  | 8500         | 820882001277849_1399933660039344 | 2016-11-29T01:45:33+0000 |
+  +--------------+----------------------------------+--------------------------+
+  | 6270         | 820882001277849_1818745688158137 | 2017-12-20T22:38:25+0000 |
+  +--------------+----------------------------------+--------------------------+
+  | 6009         | 820882001277849_1653572854675422 | 2017-07-10T20:43:51+0000 |
+  +--------------+----------------------------------+--------------------------+
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+  FC Barcelona
+  +--------------+--------------------------------+--------------------------+
+  | num_of_likes | id                             | created_time             |
+  +--------------+--------------------------------+--------------------------+
+  | 173469       | 197394889304_10156578963364305 | 2018-03-04T17:09:35+0000 |
+  +--------------+--------------------------------+--------------------------+
+  | 161723       | 197394889304_10156539385409305 | 2018-02-20T21:38:14+0000 |
+  +--------------+--------------------------------+--------------------------+
+  | 137554       | 197394889304_10156539562294305 | 2018-02-21T01:30:00+0000 |
+  +--------------+--------------------------------+--------------------------+
+  | 124023       | 197394889304_10156552262359305 | 2018-02-24T21:41:02+0000 |
+  +--------------+--------------------------------+--------------------------+
+  | 117804       | 197394889304_10156553565614305 | 2018-02-25T08:40:06+0000 |
+  +--------------+--------------------------------+--------------------------+
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fb_pages_most_liked_posts.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+  Whole Foods
+  +--------------+-------------------------------+--------------------------+
+  | num_of_likes | id                            | created_time             |
+  +--------------+-------------------------------+--------------------------+
+  | 8237         | 24922591487_10155863154201488 | 2018-01-25T15:20:26+0000 |
+  +--------------+-------------------------------+--------------------------+
+  | 6627         | 24922591487_10155845632296488 | 2018-01-19T20:31:01+0000 |
+  +--------------+-------------------------------+--------------------------+
+  | 6062         | 24922591487_10155737382231488 | 2017-12-08T21:27:47+0000 |
+  +--------------+-------------------------------+--------------------------+
+  | 4192         | 24922591487_10155809144296488 | 2018-01-05T15:36:13+0000 |
+  +--------------+-------------------------------+--------------------------+
+  | 2649         | 24922591487_10155714711586488 | 2017-11-30T20:14:54+0000 |
+  +--------------+-------------------------------+--------------------------+
+```
