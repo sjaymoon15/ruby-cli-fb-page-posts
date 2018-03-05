@@ -13,8 +13,8 @@ https://www.facebook.com/WholeFoods/
 
 Clone this repo
 ```
-> git clone https://github.com/sjaymoon15/ruby-cli-fb-page-posts.git
-> cd ruby-cli-fb-page-posts
+$ git clone https://github.com/sjaymoon15/ruby-cli-fb-page-posts.git
+$ cd ruby-cli-fb-page-posts
 ```
 
 Set a facebook app secret environment variable
